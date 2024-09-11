@@ -1,3 +1,4 @@
+/*
 package com.amir.levant.config;
 
 import lombok.extern.slf4j.Slf4j;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 
 @Configuration
 @EnableJpaRepositories(basePackages = {"com.amir.levant.repository"})
-@EnableTransactionManagement
+//@EnableTransactionManagement
 @Slf4j
 public class DataSourceConfig {
     public DataSourceConfig() {
@@ -39,4 +40,4 @@ public class DataSourceConfig {
         dataSource.setFastConnectionFailoverEnabled(true);
         return dataSource;
     }
-}
+}*/

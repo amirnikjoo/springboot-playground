@@ -39,9 +39,10 @@ public class MultiThreadedApiTest {
 
     @Test
     public void testMultiThreadedRequests() throws InterruptedException {
-        int numberOfThreads = 100;
-        int numberOfTransactions = 1000;
+        int numberOfThreads = 250;
+        int numberOfTransactions = 10000;
         ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
+        System.out.println("started... ");
 
         for (int i = 0; i < numberOfThreads; i++) {
             executorService.submit(() -> {
@@ -57,6 +58,7 @@ public class MultiThreadedApiTest {
 
         executorService.shutdown();
         executorService.awaitTermination(10, TimeUnit.MINUTES);
+        System.out.println("finished... ");
     }
 
 
@@ -81,7 +83,7 @@ public class MultiThreadedApiTest {
         transactionDto.setChannelType("ChannelType" + random.nextInt(10));
         transactionDto.setTerminalId(random.nextInt(10000));
         transactionDto.setStan("" + random.nextInt(999999));
-        transactionDto.setRrn("" + random.nextLong(99999999999L));
+        transactionDto.setRrn("" + random.nextInt());
         transactionDto.setAdditionalData("AdditionalData" + random.nextInt(1000));
         transactionDto.setResCode("00");
         transactionDto.setExceptionMessage("No exception");

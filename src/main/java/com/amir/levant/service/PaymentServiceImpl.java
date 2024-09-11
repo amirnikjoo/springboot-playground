@@ -4,7 +4,7 @@ import com.amir.levant.dto.ResponseDto;
 import com.amir.levant.dto.TransactionDto;
 import com.amir.levant.model.Transaction;
 import com.amir.levant.repository.TransactionRepository;
-import jakarta.transaction.Transactional;
+import javax.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -25,7 +25,7 @@ public class PaymentServiceImpl implements PaymentService{
     }
 
     @Override
-//    @Transactional
+    @Transactional
     public ResponseDto doPayment(TransactionDto transactionDto) {
         Transaction transaction = modelMapper.map(transactionDto, Transaction.class);
         transactionRepository.save(transaction);

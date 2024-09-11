@@ -1,7 +1,7 @@
 package com.amir.levant.model;
 
 import com.amir.levant.dto.ServiceId;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
