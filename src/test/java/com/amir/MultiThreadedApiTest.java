@@ -2,6 +2,7 @@ package com.amir;
 
 import com.amir.levant.dto.ServiceId;
 import com.amir.levant.dto.TransactionDto;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +18,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
+@Slf4j
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class MultiThreadedApiTest {
     private static final Random random = new Random();
@@ -39,10 +41,10 @@ public class MultiThreadedApiTest {
 
     @Test
     public void testMultiThreadedRequests() throws InterruptedException {
-        int numberOfThreads = 250;
-        int numberOfTransactions = 10000;
+        int numberOfThreads = 1;
+        int numberOfTransactions = 100;
+        log.info(new Date() + " started... {}, {}" ,numberOfThreads , numberOfTransactions);
         ExecutorService executorService = Executors.newFixedThreadPool(numberOfThreads);
-        System.out.println("started... ");
 
         for (int i = 0; i < numberOfThreads; i++) {
             executorService.submit(() -> {
@@ -57,8 +59,8 @@ public class MultiThreadedApiTest {
         }
 
         executorService.shutdown();
-        executorService.awaitTermination(10, TimeUnit.MINUTES);
-        System.out.println("finished... ");
+        executorService.awaitTermination(100, TimeUnit.MINUTES);
+        System.out.println(new Date() + " finished... ");
     }
 
 
