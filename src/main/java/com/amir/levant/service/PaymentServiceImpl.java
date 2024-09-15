@@ -21,7 +21,7 @@ public class PaymentServiceImpl implements PaymentService{
     public PaymentServiceImpl(TransactionRepository transactionRepository, ModelMapper modelMapper) {
         this.transactionRepository = transactionRepository;
         this.modelMapper = modelMapper;
-//        log.info("PaymentServiceImpl is created...");
+        log.info("PaymentServiceImpl is created...");
     }
 
     @Override

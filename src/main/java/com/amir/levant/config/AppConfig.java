@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
 public class AppConfig {
 
     public AppConfig() {
-//        log.info("AppConfig is created...");
+        log.info("AppConfig is created...");
 
     }
 

@@ -13,7 +13,7 @@ import java.util.Date;
 @Slf4j
 public class Transaction {
     public Transaction() {
-//        log.info("Transaction is created...");
+        log.info("Transaction is created...");
     }
 
     @Id
