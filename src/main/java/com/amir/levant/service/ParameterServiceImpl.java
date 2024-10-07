@@ -25,6 +25,7 @@ public class ParameterServiceImpl implements ParameterService {
     @Override
     public ParameterDto getParameterById(Long id) {
         Optional<Parameter> parameter = parameterRepository.findById(id);
+
         return parameter.map(value -> modelMapper.map(value, ParameterDto.class)).orElse(null);
     }
 

@@ -12,9 +12,9 @@ public class PaymentApplication {
 	public static void main(String[] args) {
 
 		ConfigurableApplicationContext run = SpringApplication.run(PaymentApplication.class, args);
-		for (String s: run.getBeanDefinitionNames()) {
-			System.out.println("s = " + s);
-		}
+//		for (String s: run.getBeanDefinitionNames()) {
+//			System.out.println("s = " + s);
+//		}
 
 	}
 

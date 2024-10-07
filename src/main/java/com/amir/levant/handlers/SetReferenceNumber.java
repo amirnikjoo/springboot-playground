@@ -18,6 +18,7 @@ public class SetReferenceNumber extends IHandler {
     public void process(Map map) throws Exception {
         map.put(PaymentConstants.REQUEST_TIME, System.currentTimeMillis());
         String refNo = MyUtility.generateRefNo1();
+        log.debug("---- inside ---- {} ", refNo);
         log.info("---- inside ---- {} ", refNo);
 
         ParameterDto parameterById = parameterService.getParameterById(1L);
