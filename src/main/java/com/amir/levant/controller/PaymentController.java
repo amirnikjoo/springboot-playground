@@ -1,7 +1,6 @@
-package com.amir.levant.resource;
+package com.amir.levant.controller;
 
 import com.amir.levant.api.dto.PersonDto;
-import com.amir.levant.api.dto.WalletResponseDto;
 import com.amir.levant.constants.PaymentConstants;
 import com.amir.levant.core.IHandler;
 import com.amir.levant.dto.TransactionDto;
@@ -17,14 +16,12 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/v1/payment")
-//@RequiredArgsConstructor
 @Slf4j
-public class PaymentResource {
+public class PaymentController {
     private final PaymentService paymentService;
-
     private final IHandler registerFlow;
 
-    public PaymentResource(PaymentService paymentService, @Qualifier("registerFlow") IHandler registerFlow) {
+    public PaymentController(PaymentService paymentService, @Qualifier("registerFlow") IHandler registerFlow) {
         this.paymentService = paymentService;
         this.registerFlow = registerFlow;
         log.info("PaymentResource is created...");
@@ -40,8 +37,8 @@ public class PaymentResource {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String > register(@RequestBody PersonDto inputDto,
-                                         @RequestHeader Map<String, String> headers) {
+    public ResponseEntity<String> register(@RequestBody PersonDto inputDto,
+                                           @RequestHeader Map<String, String> headers) {
 
         log.info("request_body: {} ", inputDto.toString());
         Map map = new HashMap();

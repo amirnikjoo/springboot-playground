@@ -4,16 +4,15 @@ package com.amir.levant.service;
 import com.amir.levant.dto.ParameterDto;
 import com.amir.levant.model.Parameter;
 
-import java.util.List;
 
 public interface ParameterService {
 
-    ParameterDto getParameterById(Long id);
+    Parameter getParameterById(String refNo, Long id);
 
-    List<ParameterDto> getParameterByGroupId(Integer groupId);
+//    List<ParameterDto> getParameterByGroupId(String refNo, Integer groupId);
 
-    Parameter getParameterByGroupIdAndClue(Integer groupId, String clue);
+//    Parameter getParameterByGroupIdAndClue(String refNo, Integer groupId, String clue);
 
-    ParameterDto add(ParameterDto dto);
+//    ParameterDto add(String refNo, ParameterDto dto);
 
 }

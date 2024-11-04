@@ -1,8 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd">
+http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/jpa https://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+
+    <jpa:repositories base-package="com.amir.levant.repository"/>
+
+    <bean id="dataSource" class="com.zaxxer.hikari.HikariDataSource">
+        <property name="driverClassName" value="oracle.jdbc.OracleDriver"/>
+        <property name="jdbcUrl"
+                  value=" jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS =(PROTOCOL=TCP)(HOST=uat.oracle.kian.digital)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=UAT)))"/>
+        <property name="username" value="api_channel"/>
+        <property name="password" value="#)dLebys(h1HnmX$"/>
+        <property name="maximumPoolSize" value="50"/>
+        <property name="minimumIdle" value="15"/>
+        <property name="idleTimeout" value="30000"/>
+        <property name="connectionTimeout" value="30000"/>
+        <property name="poolName" value="HikariCP"/>
+    </bean>
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="com.amir.levant"/>
+        <property name="jpaVendorAdapter">
+            <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
+        </property>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
 
     <bean id="registerFlow" class="com.amir.levant.handlers.chain.RegisterFlow">
         <property name="handlers">
@@ -10,12 +37,18 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
                 <ref bean="setReferenceNumber"/>
             </list>
         </property>
-<!--        <property name="exceptionHandler">-->
-<!--            <list>-->
-<!--            </list>-->
-<!--        </property>-->
+        <!--        <property name="exceptionHandler">-->
+        <!--            <list>-->
+        <!--            </list>-->
+        <!--        </property>-->
     </bean>
 
-    <bean id="setReferenceNumber" class="com.amir.levant.handlers.SetReferenceNumber"/>
+    <bean id="setReferenceNumber" class="com.amir.levant.handlers.SetReferenceNumber">
+        <property name="parameterService" ref="parameterService"/>
+        <property name="paramGroupId" value="1"/>
+    </bean>
+
+    <bean id="parameterService" class="com.amir.levant.service.ParameterServiceImpl"/>
+
 
 </beans>

@@ -9,30 +9,32 @@ spring:
     name: payment
   profiles:
     active: dev
+#  main:
+#    allow-bean-definition-overriding=true
 
-  datasource:
-    type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS =(PROTOCOL=TCP)(HOST=uat.oracle.kian.digital)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=UAT)))
-    username: api_channel
-    password: api_channel
-    hikari:
-      minimum-idle: 10
-      maximum-pool-size: 500
-      idle-timeout: 5000
-  jpa:
-    open-in-view: false
-    hibernate:
-      ddl-auto: none
-      naming:
-        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
-        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
-
-    database-platform: org.hibernate.dialect.Oracle12cDialect
-    database: ORACLE
-    show-sql: false
-    properties:
-      hibernate.hbm2ddl.auto: none
-      hibernate.id.new_generator_mappings: true
+#  datasource:
+#    type: com.zaxxer.hikari.HikariDataSource
+#    url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS =(PROTOCOL=TCP)(HOST=uat.oracle.kian.digital)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=UAT)))
+#    username: api_channel
+#    password: "#)dLebys(h1HnmX$"
+#    hikari:
+#      minimum-idle: 10
+#      maximum-pool-size: 500
+#      idle-timeout: 5000
+#  jpa:
+#    open-in-view: false
+#    hibernate:
+#      ddl-auto: none
+#      naming:
+#        physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+#        implicit-strategy: org.springframework.boot.orm.jpa.hibernate.SpringImplicitNamingStrategy
+#
+#    database-platform: org.hibernate.dialect.Oracle12cDialect
+#    database: ORACLE
+#    show-sql: false
+#    properties:
+#      hibernate.hbm2ddl.auto: none
+#      hibernate.id.new_generator_mappings: true
 #      hibernate.cache.use_second_level_cache: true
 #      hibernate.cache.use_query_cache: false
 #      hibernate.generate_statistics: false
