@@ -14,7 +14,7 @@ spring:
     type: com.zaxxer.hikari.HikariDataSource
     url: jdbc:oracle:thin:@(DESCRIPTION =(ADDRESS_LIST =(ADDRESS =(PROTOCOL=TCP)(HOST=uat.oracle.kian.digital)(PORT=1521)))(CONNECT_DATA=(SERVICE_NAME=UAT)))
     username: api_channel
-    password: api_channel
+    password: "#)dLebys(h1HnmX$"
     hikari:
       minimum-idle: 10
       maximum-pool-size: 500

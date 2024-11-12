@@ -4,18 +4,20 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+<!--
     <bean id="registerFlow" class="com.amir.levant.handlers.chain.RegisterFlow">
         <property name="handlers">
             <list>
                 <ref bean="setReferenceNumber"/>
             </list>
         </property>
-<!--        <property name="exceptionHandler">-->
-<!--            <list>-->
-<!--            </list>-->
-<!--        </property>-->
+&lt;!&ndash;        <property name="exceptionHandler">&ndash;&gt;
+&lt;!&ndash;            <list>&ndash;&gt;
+&lt;!&ndash;            </list>&ndash;&gt;
+&lt;!&ndash;        </property>&ndash;&gt;
     </bean>
 
     <bean id="setReferenceNumber" class="com.amir.levant.handlers.SetReferenceNumber"/>
+-->
 
 </beans>
