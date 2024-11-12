@@ -1,3 +1,4 @@
+/*
 package com.amir.levant.constants;
 
 import java.util.HashMap;
@@ -24,11 +25,11 @@ public class PaymentConstants {
     public final static String REQUEST_OBJECT = "REQUEST_OBJECT";
     public final static String REQUEST_TIME = "REQUEST_TIME";
 
-    public final static String REF_NUMBER = "REF_NUMBER";
+    public final static String REF_NO = "REF_NO";
 
     public static final String EXCEPTION_CLASS = "Exception_Class";
     public static final String EXCEPTION_CLASS_NAME = "Exception_Class_Name";
-    public static final String EXCEPTION_CLASS_OBJECT = "Exception-Class_Object";
+    public static final String EXCEPTION_CLASS_OBJECT = "Exception_Class_Object";
 
     public static final String USER_OBJECT = "User-Object";
     public static final String WALLET_REQUEST_OBJECT = "Wallet_Request_Object";
@@ -44,24 +45,6 @@ public class PaymentConstants {
     public static final String PERSONAL_WALLET_ACCOUNT_OBJECT = "PERSONAL_WALLET_ACCOUNT_OBJECT";
 
     //todo: make better
-    public static final Integer WALLET_STATUS_ACTIVE = 0;
-    public static final Integer WALLET_STATUS_ACTIVE_WARNING = 10;
-    public static final Integer WALLET_STATUS_BLOCK_DEPOSIT = 20;
-    public static final Integer WALLET_STATUS_BLOCK_WITHDRAW = 30;
-    public static final Integer WALLET_STATUS_BLOCK = 40;
-    public static final Integer WALLET_STATUS_CLOSE_TEMP = 50;
-    public static final Integer WALLET_STATUS_CLOSE_WARNING = 60;
-    public static final Integer WALLET_STATUS_CLOSE = 70;
-
-    public static final String REQUEST_SERVICE_ID = "REQUEST_SERVICE_ID";
-    public static final String ORIGINAL_SERVICE_ID = "ORIGINAL_SERVICE_ID";
-    public static final Integer SERVICE_ID_REGISTER = 1;
-    public static final Integer SERVICE_ID_CHANGE_RISK_LEVEL = 2;
-    public static final Integer SERVICE_ID_CHANGE_STATUS = 3;
-    public static final Integer SERVICE_ID_CHANGE_MOBILE_NO = 4;
-    public static final Integer SERVICE_ID_ADD_ACCOUNT = 5;
-    public static final Integer SERVICE_ID_REMOVE_ACCOUNT = 6;
-    public static final Integer SERVICE_ID_INQUIRY = 7;
 
     public static final String WALLET_TYPE_PERSONAL = "1";
     public static final String WALLET_TYPE_COMMERCIAL = "2";
@@ -166,3 +149,4 @@ public class PaymentConstants {
 
 }
 
+*/

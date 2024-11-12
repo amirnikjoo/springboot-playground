@@ -1,7 +1,8 @@
 package com.amir.levant.core;
 
-import com.amir.levant.constants.PaymentConstants;
-import lombok.extern.slf4j.Slf4j;
+//import com.amir.levant.constants.PaymentConstants;
+import com.amir.levant.core.exception.ChannelException;
+import com.amir.levant.core.exception.IException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -48,20 +49,20 @@ public abstract class IHandler {
             for (; i < handlers.length; i++)
                 handlers[i].process(map);
         } catch (Exception e) {
-            String refNo = (String) map.get(PaymentConstants.REF_NUMBER);
+            String refNo = (String) map.get(Constants.REF_NO);
             log.error("refNo = {}, {}, in {}", refNo, e, handlers[i].getClass());
             log.info("refNo = {}, map = {}", refNo, map);
 
-            map.put(PaymentConstants.EXCEPTION_CLASS_OBJECT, e);
+            map.put(Constants.EXCEPTION_CLASS_OBJECT, e);
             log.error("class: {}, {}", e.getClass(), e.getMessage());
-            if (e instanceof CustomException) {
-                Integer sourceId = ((CustomException) e).getSourceId();
-                map.put(PaymentConstants.EXCEPTION_SOURCE_ID, sourceId);
+            if (e instanceof IException) {
+                Integer sourceId = ((ChannelException) e).getSourceId();
+                map.put(Constants.EXCEPTION_SOURCE_ID, sourceId);
                 log.error("sourceId: {}", sourceId);
             } else {
-                map.put(PaymentConstants.EXCEPTION_SOURCE_ID, -1);
+                map.put(Constants.EXCEPTION_SOURCE_ID, -1);
             }
-            map.put(PaymentConstants.EXCEPTION_CLASS, e.getClass());
+            map.put(Constants.EXCEPTION_CLASS, e.getClass());
             if (exceptionHandler != null && exceptionHandler.length > 0) {
                 try {
                     for (int k = 0; k < exceptionHandler.length; k++)
@@ -70,9 +71,9 @@ public abstract class IHandler {
                     log.error("refNo = {} , exception occurred in exception handler, e = {}", refNo, e1);
                     throw e1;
                 }
-                throw (Exception) map.get(PaymentConstants.EXCEPTION_CLASS_OBJECT);
+                throw (Exception) map.get(Constants.EXCEPTION_CLASS_OBJECT);
             } else
-                throw (Exception) map.get(PaymentConstants.EXCEPTION_CLASS_OBJECT);
+                throw (Exception) map.get(Constants.EXCEPTION_CLASS_OBJECT);
         }
     }
 }

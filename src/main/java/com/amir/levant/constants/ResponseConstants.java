@@ -8,7 +8,7 @@ import java.util.Map;
 public class ResponseConstants {
     public final static String APPROVED_RESPONSE_CODE = "000";
     public final static Integer APPROVED_RESPONSE_CODE_INT = 0;
-    public final static String APPROVED_RESPONSE_DESC = "درخواست با موفقیت ثبت شد";
+    public final static String APPROVED_RESPONSE_DESC = "درخواست با موفقیت انجام شد";
     public final static String APPROVED_RESPONSE_DESC_INQUIRY = "درخواست اصلی با موفقیت انجام شده است";
     public final static String EXCEPTION_KEY_IN_PROGRESS = "RequestInProgressException";
     public final static String EXCEPTION_KEY_DATA_ACCESS = "DataAccessException";

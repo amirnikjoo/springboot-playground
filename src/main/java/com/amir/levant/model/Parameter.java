@@ -11,8 +11,8 @@ import java.util.Date;
 @Table(name = "PARAMETER")
 public class Parameter {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARAMETER_generator")
-    @SequenceGenerator(name = "PARAMETER_generator", sequenceName = "PARAMETER_SEQUENCE", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "PARAMETER_GENERATOR")
+    @SequenceGenerator(name = "PARAMETER_GENERATOR", sequenceName = "CARD_PARAMETER_SEQ", allocationSize = 1)
     private Long id;
 
     @Column(name = "GROUP_ID")
@@ -29,6 +29,12 @@ public class Parameter {
 
     @Column(name = "VALUE")
     private String value;
+
+    @Column(name = "DESC_FA")
+    private String descFa;
+
+    @Column(name = "DESC_EN")
+    private String descEn;
 
     @Column(name = "CREATE_DATE")
     private Date createDate;

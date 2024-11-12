@@ -1,4 +1,4 @@
-package com.amir.levant.core;/*
+package com.amir.levant.core.exception;/*
 package ir.shaparak.eWallet.core;
 
 import java.util.HashMap;

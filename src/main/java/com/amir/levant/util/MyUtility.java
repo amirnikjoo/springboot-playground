@@ -1,7 +1,6 @@
 package com.amir.levant.util;
 
-import com.amir.levant.constants.PaymentConstants;
-import com.amir.levant.core.CustomException;
+import com.amir.levant.core.exception.ChannelException;
 
 import java.math.BigDecimal;
 import java.math.MathContext;
@@ -84,15 +83,6 @@ public class MyUtility {
         }
 
         return out.substring(0, out.length() - 1);
-    }
-
-    public static void checkMaxValidAccounts(String[] ibans, String[] pans) throws CustomException {
-        Integer panCount = (pans != null ? pans.length : 0);
-        Integer ibanCount = (ibans != null ? ibans.length : 0);
-
-        if (panCount + ibanCount > PaymentConstants.MAX_VALID_ACCOUNTS)
-            throw new CustomException(PaymentConstants.EXCEPTION_SOURCE_ID_WALLET_CHANNEL, "MaxAccountCountExceededException");
-
     }
 
     public static class LUHN {
