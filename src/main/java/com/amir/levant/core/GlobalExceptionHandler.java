@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 import java.util.Date;
+import java.util.Random;
 
 @Slf4j
 @ControllerAdvice
@@ -23,13 +24,18 @@ public class GlobalExceptionHandler {
         this.parameterRepository = parameterRepository;
     }
 
-    @ExceptionHandler(IException.class)
-    public ResponseEntity<ResponseDto> handleAllExceptions(IException ex) {
+    @ExceptionHandler(Exception.class)
+    public ResponseEntity<ResponseDto> handleAllExceptions(Exception ex) {
         log.error("message: {}, simpleName: {}", ex.getMessage(), ex.getClass().getSimpleName());
-        Parameter paraException = parameterRepository.findByGroupIdAndClue(2000, ex.getClass().getSimpleName());
         ResponseDto responseDto = new ResponseDto();
-        responseDto.setRefNo(ex.getRefNo());
-        responseDto.setResDesc(ex.getMessage());
+        Parameter paraException = parameterRepository.findByGroupIdAndClue(2000, ex.getClass().getSimpleName());
+        if (ex instanceof IException) {
+            responseDto.setRefNo(((IException) ex).getRefNo());
+        } else {
+            responseDto.setRefNo(new Random(100000000L).nextLong());
+        }
+        responseDto.setResDescFa(paraException.getDescFa());
+        responseDto.setResDescEn(paraException.getDescEn());
         responseDto.setResCode(paraException.getValue());
         responseDto.setReqDate(new Date());
         return new ResponseEntity<>(responseDto, HttpStatus.INTERNAL_SERVER_ERROR);

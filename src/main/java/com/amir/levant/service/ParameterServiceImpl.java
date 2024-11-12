@@ -52,6 +52,11 @@ public class ParameterServiceImpl implements ParameterService {
         return null;
     }
 
+    @Override
+    public Long generateRefNo() {
+        return parameterRepository.generateRefNo() ;
+    }
+
     private Parameter prepareParameter(ParameterDto dto) {
         Parameter parameter = new Parameter();
         parameter.setGroupId(dto.getGroupId());

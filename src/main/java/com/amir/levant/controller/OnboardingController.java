@@ -24,9 +24,7 @@ public class OnboardingController {
                                                   @RequestHeader Map<String, String> headers) throws Exception {
 
         log.info("request_body: {} ", inputDto.toString());
-
-        bankInquiryService.doRegister(inputDto);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.ok(bankInquiryService.doRegister(inputDto));
 
     }
 }

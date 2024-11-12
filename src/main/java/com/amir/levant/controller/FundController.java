@@ -1,3 +1,4 @@
+/*
 package com.amir.levant.controller;
 
 import com.amir.levant.api.dto.PersonDto;
@@ -21,8 +22,6 @@ import java.util.Map;
 public class FundController {
     private final PaymentService paymentService;
 
-    //    private final IHandler registerFlow;
-//    private final IHandler testFlow;
     @Autowired
     private IHandler testChainHandler;
 
@@ -42,6 +41,7 @@ public class FundController {
         return ResponseEntity.ok().build();
     }
 
+*/
 /*
     @PostMapping("/register")
     public ResponseEntity<String > register(@RequestBody PersonDto inputDto,
@@ -62,7 +62,8 @@ public class FundController {
         String refNo = (String) map.get(PaymentConstants.REF_NUMBER);
         return refNo != null ? ResponseEntity.ok(refNo) : ResponseEntity.badRequest().build();
     }
-*/
+*//*
+
 
     @PostMapping("/test")
     public ResponseEntity<String> test(@RequestBody PersonDto inputDto,
@@ -85,3 +86,4 @@ public class FundController {
     }
 
 }
+*/

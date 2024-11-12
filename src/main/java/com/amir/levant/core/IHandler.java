@@ -49,7 +49,7 @@ public abstract class IHandler {
             for (; i < handlers.length; i++)
                 handlers[i].process(map);
         } catch (Exception e) {
-            String refNo = (String) map.get(Constants.REF_NO);
+            Long refNo = (Long) map.get(Constants.REF_NO);
             log.error("refNo = {}, {}, in {}", refNo, e, handlers[i].getClass());
             log.info("refNo = {}, map = {}", refNo, map);
 

@@ -1,7 +1,6 @@
 package com.amir.levant.model;
 
 import com.amir.levant.enums.BankInquiryStatus;
-import com.amir.levant.enums.Banks;
 import lombok.Data;
 
 import javax.persistence.*;

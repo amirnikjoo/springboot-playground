@@ -16,4 +16,6 @@ public interface ParameterService {
 
     ParameterDto add(ParameterDto dto);
 
+    Long generateRefNo();
+
 }
