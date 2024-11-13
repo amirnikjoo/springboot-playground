@@ -31,7 +31,7 @@
     </appender>
 
     <!-- Set the logging level for different packages -->
-    <logger name="com.amir.levant" level="DEBUG"/>
+    <logger name="com.kian.card" level="DEBUG"/>
     <logger name="org.springframework" level="INFO"/>
 
     <!-- Root logger configuration -->

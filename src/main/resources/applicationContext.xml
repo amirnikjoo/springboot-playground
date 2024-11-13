@@ -5,7 +5,7 @@
 http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 <!--
-    <bean id="registerFlow" class="com.amir.levant.handlers.chain.RegisterFlow">
+    <bean id="registerFlow" class="com.kian.card.handlers.chain.RegisterFlow">
         <property name="handlers">
             <list>
                 <ref bean="setReferenceNumber"/>
@@ -17,7 +17,7 @@ http://www.springframework.org/schema/beans/spring-beans.xsd">
 &lt;!&ndash;        </property>&ndash;&gt;
     </bean>
 
-    <bean id="setReferenceNumber" class="com.amir.levant.handlers.SetReferenceNumber"/>
+    <bean id="setReferenceNumber" class="com.kian.card.handlers.SetReferenceNumber"/>
 -->
 
 </beans>

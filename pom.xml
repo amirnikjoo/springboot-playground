@@ -8,11 +8,11 @@
 		<version>2.3.0.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.amir</groupId>
-	<artifactId>payment</artifactId>
+	<groupId>com.kian</groupId>
+	<artifactId>card</artifactId>
 	<version>0.1</version>
-	<name>payment</name>
-	<description>this is a high performance payment incoming channel</description>
+	<name>card</name>
+	<description>kian card project</description>
 	<url/>
 	<licenses>
 		<license/>
