@@ -5,8 +5,11 @@ import com.amir.levant.core.IHandler;
 import com.amir.levant.dto.ParameterDto;
 import com.amir.levant.model.Parameter;
 import com.amir.levant.repository.ParameterRepository;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -15,11 +18,18 @@ import java.util.Optional;
 
 
 @Slf4j
-@RequiredArgsConstructor
+@Service
 public class ParameterServiceImpl extends IHandler implements ParameterService {
     private final ParameterRepository parameterRepository;
-//    private final ModelMapper modelMapper;
 
+    @Setter
+    @Getter
+    private long exceptionGroupId;
+
+    @Autowired
+    public ParameterServiceImpl(ParameterRepository parameterRepository) {
+        this.parameterRepository = parameterRepository;
+    }
 
     @Override
     public Parameter getParameterById(String refNo, Long id) {

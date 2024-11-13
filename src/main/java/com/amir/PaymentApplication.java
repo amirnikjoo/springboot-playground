@@ -14,9 +14,9 @@ public class PaymentApplication {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(PaymentApplication.class, args);
+//		SpringApplication.run(PaymentApplication.class, args);
 
-/*
+
 		ConfigurableApplicationContext run = SpringApplication.run(PaymentApplication.class, args);
 		int i = 0;
 		Set<String> set = new TreeSet<>();
@@ -25,8 +25,8 @@ public class PaymentApplication {
 			set.add(s);
 			i++;
 		}
-*/
-//		set.forEach(System.out::println);
+
+		set.forEach(System.out::println);
 	}
 
 }

@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jpa="http://www.springframework.org/schema/data/jpa"
+       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/data/jpa https://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/data/jpa
+http://www.springframework.org/schema/data/jpa/spring-jpa.xsd http://www.springframework.org/schema/context
+https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="com.amir" />
 
     <jpa:repositories base-package="com.amir.levant.repository"/>
 
@@ -48,7 +55,9 @@ http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springfr
         <property name="paramGroupId" value="1"/>
     </bean>
 
-    <bean id="parameterService" class="com.amir.levant.service.ParameterServiceImpl"/>
-
+    <bean id="parameterService" class="com.amir.levant.service.ParameterServiceImpl">
+        <constructor-arg ref="parameterRepository"/>
+        <property name="exceptionGroupId" value="10"/>
+    </bean>
 
 </beans>
