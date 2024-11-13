@@ -67,7 +67,7 @@ public abstract class IHandler {
                     for (int k = 0; k < exceptionHandler.length; k++)
                         exceptionHandler[k].process(map);
                 } catch (Exception e1) {
-                    log.error("refNo = {} , exception occurred in exception handler, e = {}", refNo, e1);
+                    log.error("refNo = {}, exception occurred in exception handler, e = {}", refNo, e1);
                     throw e1;
                 }
                 throw (Exception) map.get(Constants.EXCEPTION_CLASS_OBJECT);

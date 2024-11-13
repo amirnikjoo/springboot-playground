@@ -7,6 +7,7 @@ import com.kian.card.model.BankInquiry;
 import com.kian.card.service.BankInquiryService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -22,10 +23,14 @@ public class BankInquirySchedule {
     private final IHandler bankInquiryChainHandler;
     private final BankInquiryService bankInquiryService;
 
-//    @Scheduled(fixedRate = 10000)
+    @Value("${jobs-config.job1.enabled:true}")
+    public boolean isEnabled;
+
+
+    //    @Scheduled(fixedRate = 10000)
     @Scheduled(cron = "0/10 * * * * ?")
     public void run() throws Exception {
-
+//        if (isEnabled) {
         List<BankInquiry> bankInquiryList = bankInquiryService.getBankInquiries(BankInquiryStatus.CREATED);
         log.info("list size: {}", bankInquiryList.size());
         for (BankInquiry bankInquiry : bankInquiryList) {
@@ -33,5 +38,6 @@ public class BankInquirySchedule {
             map.put(Constants.BANK_INQUIRY_ENTITY, bankInquiry);
             bankInquiryChainHandler.process(map);
         }
+//        }
     }
 }
